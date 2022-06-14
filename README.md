@@ -5,7 +5,7 @@
  </tr>
 </table>
 
-# [Alveo Versal Documentation](https://pages.gitenterprise.xilinx.com/techdocs/Alveo-Versal-Cards/)
+# [Alveo Versal Documentation](https://xilinx.github.io/Alveo-Versal-Platforms/)
 
 <hr/>
 <p align="center" class="sphinxhide"><sup>Copyright&copy; 2022 Xilinx</sup></p>
