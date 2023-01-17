@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+<!-- OneTrust Cookies Consent Notice start for xilinx.github.io -->
+
+<script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" data-document-language="true" type="text/javascript" charset="UTF-8" data-domain-script="03af8d57-0a04-47a6-8f10-322fa00d8fc7" ></script>
+<script type="text/javascript">
+function OptanonWrapper() { }
+</script>
+<!-- OneTrust Cookies Consent Notice end for xilinx.github.io -->
+<!-- Google Tag Manager -->
+<script type="text/plain" class="optanon-category-C0002">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5RHQV7');</script>
+<!-- End Google Tag Manager -->
+  <title>Installation Guide for Platform Deployment Packages &mdash; Alveo Versal Vitis Platforms 2022.2 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="VCK5000 Migration Guide" href="vck5000_migration.html" />
+    <link rel="prev" title="Installation Guide for Platform Development Packages" href="install_development.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5RHQV7" height="0" width="0" style="display:none;visibility:hidden" class="optanon-category-C0002"></iframe></noscript>
+<!-- End Google Tag Manager --> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+            <a href="../../index.html" class="icon icon-home"> Alveo Versal Vitis Platforms
+          </a>
+              <div class="version">
+                2022.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="card_installation.html">Alveo Versal Card Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install_development.html">Installation Guide for Platform Development Packages</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation Guide for Platform Deployment Packages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#platform-naming-and-life-cycle">Platform Naming and Life Cycle</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#package-naming">Package Naming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#life-cycle-of-a-platform-and-user-applications">Life-cycle of a Platform and User Applications</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#deployment-package-installation">Deployment Package Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#xrt-environment-setup">XRT environment setup:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-1-redhat-and-centos-package-installation">Step 1 (RedHat and CentOS) Package Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-1-ubuntu-package-installation">Step 1 (Ubuntu) Package Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-2-installation-on-the-card">Step 2 Installation On The Card</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step3-validating-platform-installation">Step3 Validating Platform Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#next-steps">Next Steps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#obtaining-card-bdf-values">Obtaining Card BDF Values</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#management-bdf">Management BDF</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user-bdf">User BDF</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#changing-xrt-and-target-platform-versions">Changing XRT and Target Platform Versions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#redhat-and-centos">RedHat and CentOS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ubuntu">Ubuntu</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="vck5000_migration.html">VCK5000 Migration Guide</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Platform Architecture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../architecture/arch_overview.html">Platform Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture/arch_features.html">Platform Features</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Platform User Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/ug_list.html">Alveo Versal Userguides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/ug_vck5000_gen3x16_xdma.html">VCK5000 Gen3x16 XDMA Vitis Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/ug_vck5000_gen4x8_xdma.html">VCK5000 Gen4x8 XDMA Vitis Platform</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Alveo Versal Vitis Platforms</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Installation Guide for Platform Deployment Packages</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/docs/getting-started/install_deployment.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="installation-guide-for-platform-deployment-packages">
+<span id="id1"></span><h1>Installation Guide for Platform Deployment Packages<a class="headerlink" href="#installation-guide-for-platform-deployment-packages" title="Permalink to this heading">¶</a></h1>
+<p>The Platform Deployment Package is needed when using an Alveo® Versal® Data Center accelerator card. This could be to:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>run a newly created application (XCLBIN) generated with Vitis and the <a class="reference internal" href="install_development.html#installation-guide-for-platform-development-packages"><span class="std std-ref">Platform Development Package</span></a></p></li>
+<li><p>run a 3rd party application created for the desired platform</p></li>
+<li><p>run some built-in applications to validate the hardware, see xbtest or <a class="reference external" href="https://xilinx.github.io/XRT/master/html/xbutil.html">xbutil validate</a></p></li>
+</ul>
+</div></blockquote>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>When using 3rd party applications they will be platform dependent. Check that they support your desired Alveo card and platform.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="platform-naming-and-life-cycle">
+<h2>Platform Naming and Life Cycle<a class="headerlink" href="#platform-naming-and-life-cycle" title="Permalink to this heading">¶</a></h2>
+<div class="section" id="package-naming">
+<h3>Package Naming<a class="headerlink" href="#package-naming" title="Permalink to this heading">¶</a></h3>
+<p>Starting with the 2022.1 release, Alveo Versal platforms are delivered through a single Linux installation deployment package outlined in the following table. Platforms consisted of multiple dependent deployment packages in previous releases.</p>
+<table class="docutils align-default" id="id4">
+<caption><span class="caption-text"><strong>Table: Versal Deployment Package Types</strong></span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 8%" />
+<col style="width: 78%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Tools</p></th>
+<th class="head"><p>Package</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td rowspan="3"><p>2021.2 or earlier</p></td>
+<td><p>Partition</p></td>
+<td><p>Contains a device PDI that implements the <a class="reference internal" href="../architecture/arch_overview.html#arch-overview"><span class="std std-ref">static region</span></a> of the deployment platform.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Validate</p></td>
+<td><p>Contains binaries to validate a platform installation and Alveo card setup.</p></td>
+</tr>
+<tr class="row-even"><td><p>Firmware</p></td>
+<td><p>Contains compiled <strong>SC</strong> and <strong>CMC</strong> firmware binary files.</p></td>
+</tr>
+<tr class="row-odd"><td><p>2022.1 onwards</p></td>
+<td><p>Partition</p></td>
+<td><p>Contains all device configuration and validation device binaries.</p></td>
+</tr>
+</tbody>
+</table>
+<p>The partition installation package names are generated by concatenating the following elements:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">&lt;name&gt;_&lt;version&gt;-&lt;release&gt;-&lt;architecture&gt;[-&lt;OS</span> <span class="pre">version&gt;].&lt;extension&gt;</span></code></p>
+</div></blockquote>
+<p>Each element consists of one or more sub-elements and are further described in the following table.</p>
+<span id="deployment-package-name-element-fields"></span><table class="docutils align-default" id="id5">
+<caption><span class="caption-text"><strong>Table: Deployment Package Name Element Fields</strong></span><a class="headerlink" href="#id5" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 13%" />
+<col style="width: 59%" />
+<col style="width: 13%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Element</p></th>
+<th class="head"><p>Sub-Element</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Examples</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td rowspan="4"><p>Name</p></td>
+<td><p>Company</p></td>
+<td><p>Vendor name.</p></td>
+<td><p>xilinx</p></td>
+</tr>
+<tr class="row-odd"><td><p>Card</p></td>
+<td><p>Card name.</p></td>
+<td><p>vck5000</p></td>
+</tr>
+<tr class="row-even"><td><p>Chassis</p></td>
+<td><p>PCIe Link and DMA Type.</p></td>
+<td><p>gen4x8-xdma</p></td>
+</tr>
+<tr class="row-odd"><td><p>Partition</p></td>
+<td><p>Partition type. For Alveo Versal only base is supported.</p></td>
+<td><p>base</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p>Version</p></td>
+<td><p>Version of chassis. Dot separated list of integers.
+Increments when chassis interface changes.</p></td>
+<td><p>1.1,
+2</p></td>
+</tr>
+<tr class="row-odd"><td colspan="2"><p>Release</p></td>
+<td><p>Integer release number.</p></td>
+<td><p>2200000</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p>Architecture</p></td>
+<td><p>Indicates processor architecture for RPM packages.
+Will always be noarch for Versal platform packages.</p></td>
+<td><p>noarch</p></td>
+</tr>
+<tr class="row-odd"><td colspan="2"><p>OS Version</p></td>
+<td><p>Only applies to Ubuntu packages. Will always be all for
+Versal platform packages.</p></td>
+<td><p>all</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p>Extension</p></td>
+<td><p>Package extension. rpm for RedHat and CentOS.
+deb for ubuntu.</p></td>
+<td><p>rpm
+deb</p></td>
+</tr>
+</tbody>
+</table>
+<p>The following is an example of a deployment installation package for Ubuntu:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">xilinx-vck5000-gen4x8-xdma-base_2-20220303_all.deb</span></code></p>
+</div></blockquote>
+</div>
+<hr class="docutils" />
+<div class="section" id="life-cycle-of-a-platform-and-user-applications">
+<h3>Life-cycle of a Platform and User Applications<a class="headerlink" href="#life-cycle-of-a-platform-and-user-applications" title="Permalink to this heading">¶</a></h3>
+<p>For the initial Versal platforms only the released version of XRT is supported for the platform. This differs from previous Ultrascale platforms where at least 1 year of backwards compatibility was provided.</p>
+<p>At present there is no guarantee of backwards compatibility for applications (XCLBINs) used to program the <a class="reference internal" href="../architecture/arch_overview.html#arch-overview"><span class="std std-ref">DFX region</span></a>. Vitis-generated XCLBINs must always be generated with the same version of tools as was used to generate the platform even if newer tools versions are available. For example, if you are using a platform created with version 2022.1 of the tools then version 2022.1 must be used to create the application XCLBIN.</p>
+<div class="admonition-info admonition">
+<p class="admonition-title">Info</p>
+<p>This restrictive compatibility limitation will be relaxed in future platform releases.</p>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="deployment-package-installation">
+<h2>Deployment Package Installation<a class="headerlink" href="#deployment-package-installation" title="Permalink to this heading">¶</a></h2>
+<p>This section details the procedures for installing deployment software on RedHat/CentOS and Ubuntu operating systems. All software installations use standard Linux RPM and Linux DEB packages and require root access.</p>
+<p>The deployment software consists of the following software packages:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Xilinx runtime (XRT): XRT provides the libraries and drivers for an application to run on an Alveo Versal acceleration cards and also includes <a class="reference external" href="https://xilinx.github.io/XRT/master/html/xbutil.html">xbutil</a> and <a class="reference external" href="https://xilinx.github.io/XRT/master/html/xbmgmt.html">xbmgmt</a> utilities. Utility command line help can always be obtained using the –help option.</p></li>
+<li><p>Deployment platform: The deployment platform provides the base firmware needed to run pre-compiled applications. It cannot be used to compile or create new applications. To create new applications, install the <a class="reference internal" href="install_development.html#installation-guide-for-platform-development-packages"><span class="std std-ref">development software</span></a>. Whilst you can also install the development software on a machine with an installed card, doing so is not necessary to run applications.</p></li>
+</ul>
+</div></blockquote>
+<p>All installation packages can be downloaded from the relevant lounges as listed in the table below.</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Please install the version of XRT in the lounge for the desired platform. If a different version of XRT is already installed in your system please ensure it’s version is at least the same that specified in the lounge but not more than the <a class="reference internal" href="#life-cycle-of-a-platform-and-user-applications">life-cycle guarantee</a> above. For changing XRT version please see <a class="reference internal" href="#changing-xrt-and-target-platform-versions">Changing XRT and Target Platform Versions</a>.</p>
+</div>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>The version of development package used to create applications must explicitly match the version of deployment package used to run the applications.</p>
+</div>
+<div class="admonition-info admonition">
+<p class="admonition-title">Info</p>
+<p>Root access is required for all software and firmware installations.</p>
+</div>
+<span id="alveo-versal-deployment-packages-table"></span><table class="docutils align-default" id="id6">
+<caption><span class="caption-text"><strong>Table: Alveo Versal Deployment Packages</strong></span><a class="headerlink" href="#id6" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Platform Name</p></th>
+<th class="head"><p>Tool Version</p></th>
+<th class="head"><p>SC Version</p></th>
+<th class="head"><p>Platform UUID</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Manufacturing Image</p></td>
+<td><p>N/A</p></td>
+<td><p>4.4.9</p></td>
+<td><p>A1D8D240-49C0-ED21-27A9-C3EC8520ECB1</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.xilinx.com/member/vck5000.html#vitis">vck5000-gen3x16-xdma-base-1</a></p></td>
+<td><p>2021.2</p></td>
+<td><p>4.4.12</p></td>
+<td><p>96E93BAB-A74E-D333-EE00-F559D71933A2</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.xilinx.com/member/vck5000.html#vitis">vck5000-gen4x8-xdma-base-2</a></p></td>
+<td><p>2022.1</p></td>
+<td><p>4.4.33</p></td>
+<td><p>04624343-B44B-B0A1-3CD4-8A411789FF20</p></td>
+</tr>
+</tbody>
+</table>
+<p>The <code class="docutils literal notranslate"><span class="pre">Platform</span> <span class="pre">Name</span></code>, <code class="docutils literal notranslate"><span class="pre">SC</span> <span class="pre">Version</span></code> and <code class="docutils literal notranslate"><span class="pre">Platform</span> <span class="pre">UUID</span></code> will be used later to perform and verify installation. Click the links in the table above to download the required installation packages.</p>
+<p>The deployment package installation procedure has been split into three major steps:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Installation of XRT and the deployment package on the host operating system</p></li>
+<li><p>Installation of the deployment platform configuration data on the target card</p></li>
+<li><p>Validation of the installation procedure</p></li>
+</ol>
+</div></blockquote>
+<div class="section" id="xrt-environment-setup">
+<span id="id2"></span><h3>XRT environment setup:<a class="headerlink" href="#xrt-environment-setup" title="Permalink to this heading">¶</a></h3>
+<blockquote>
+<div><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>After installing XRT, it may be necessary to setup the XRT environment to use the utilities below (xbmgmt, xbutil) by running the following command. Note that the command is dependent on the shell-type in use.</p>
+<dl>
+<dt>Use the following command in a <strong>csh</strong> shell:</dt><dd><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">source</span><span class="w"> </span>/opt/xilinx/xrt/setup.csh
+</pre></div>
+</div>
+</dd>
+<dt>Use the following command in a <strong>bash</strong> shell:</dt><dd><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">source</span><span class="w"> </span>/opt/xilinx/xrt/setup.sh
+</pre></div>
+</div>
+</dd>
+</dl>
+<p>This only needs performed if the system has been rebooted or a new terminal is opened. Running <code class="docutils literal notranslate"><span class="pre">which</span> <span class="pre">xbmgmt</span></code> should indicate if the location of the XRT utilities (<code class="docutils literal notranslate"><span class="pre">/opt/xilinx/xrt/bin</span></code>) is already known to the system.</p>
+</div>
+</div></blockquote>
+<hr class="docutils" />
+</div>
+<div class="section" id="step-1-redhat-and-centos-package-installation">
+<span id="alveo-versal-deployment-package-installation-step-1"></span><h3>Step 1 (RedHat and CentOS) Package Installation<a class="headerlink" href="#step-1-redhat-and-centos-package-installation" title="Permalink to this heading">¶</a></h3>
+<p>Use the following steps to download and install the XRT and deployment platform using a <code class="docutils literal notranslate"><span class="pre">.rpm</span></code> installation package.</p>
+<p>The following steps apply for the first time installation for a card. For details on installing a newer or older version of XRT and deployment platform, see <a class="reference internal" href="#changing-xrt-and-target-platform-versions">Changing XRT and Target Platform Versions</a>.</p>
+<blockquote>
+<div><ol class="loweralpha">
+<li><p>XRT installation requires Extra Packages for Enterprise Linux (EPEL) and a related repository. If not already installed, install EPEL on your system by following the steps provided in <a class="reference external" href="https://xilinx.github.io/XRT/master/html/install.html">XRT Installation</a>.</p></li>
+<li><p>Run the following commands to install kernel headers and kernel development packages. Ensure that uname is surrounded by backticks (`) and not single quotes (‘).</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>kernel-headers-<span class="sb">`</span>uname<span class="w"> </span>-r<span class="sb">`</span>
+$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>kernel-devel-<span class="sb">`</span>uname<span class="w"> </span>-r<span class="sb">`</span>
+</pre></div>
+</div>
+</li>
+<li><p>After the previous command completes, <code class="docutils literal notranslate"><span class="pre">warm</span> <span class="pre">reboot</span></code> your machine.</p></li>
+<li><p>Download the Xilinx® runtime (XRT) and deployment target platform installation packages from the appropriate lounge, see links in table above.</p></li>
+<li><p>Install the XRT package by running the following command from within the directory where the installation packages reside. &lt;version&gt; is the latter part of the installation package file name.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>./xrt_&lt;version&gt;.rpm
+</pre></div>
+</div>
+<p>This will install XRT to <code class="docutils literal notranslate"><span class="pre">/opt/xilinx/xrt/</span></code>. Follow the instructions when prompted throughout the installation.</p>
+</li>
+<li><p>Unpack the deployment target platform tar.gz file into a single directory. The location of the directory is not important, however the directory should not contain any other files.</p></li>
+<li><p>Install the deployment packages. From within the directory where the installation packages were unpacked, run the following command. This will install all deployment packages.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>./*.rpm
+</pre></div>
+</div>
+</li>
+</ol>
+</div></blockquote>
+<p>Proceed to <a class="reference internal" href="#step-2-installation-on-the-card">step 2</a> to install the deployment platform configuration files onto the Alveo Versal card.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="step-1-ubuntu-package-installation">
+<h3>Step 1 (Ubuntu) Package Installation<a class="headerlink" href="#step-1-ubuntu-package-installation" title="Permalink to this heading">¶</a></h3>
+<p>Use the following steps to download and install the XRT and deployment platform using a <code class="docutils literal notranslate"><span class="pre">.deb</span></code> installation package.</p>
+<p>For details on installing a newer or older version of XRT and deployment platform, see <a class="reference internal" href="#changing-xrt-and-target-platform-versions">Changing XRT and Target Platform Versions</a>.</p>
+<blockquote>
+<div><ol class="loweralpha">
+<li><p>From the appropriate lounge, see links in table above, download the Xilinx® runtime (XRT) and deployment target platform installation packages.</p></li>
+<li><p>Install the XRT installation package by running the following command from within the directory where the installation packages reside. &lt;version&gt; is the latter part of the installation package file name.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>./xrt_&lt;version&gt;.deb
+</pre></div>
+</div>
+<p>This will install XRT to <code class="docutils literal notranslate"><span class="pre">/opt/xilinx/xrt/</span></code> and its necessary dependencies. Follow the instructions when prompted throughout the installation.</p>
+</li>
+</ol>
+<ol class="loweralpha" start="6">
+<li><p>Unpack the deployment target platform tar.gz file into a single directory. The location of the directory is not important, however the directory should not contain any other files.</p></li>
+<li><p>Install the deployment packages. From within the directory where the installation packages were unpacked, run the following command. This will install all deployment packages.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>./*.deb
+</pre></div>
+</div>
+</li>
+</ol>
+</div></blockquote>
+<p>Proceed to <a class="reference internal" href="#step-2-installation-on-the-card">step 2</a> to install the deployment platform configuration files onto the Alveo Versal card.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="step-2-installation-on-the-card">
+<h3>Step 2 Installation On The Card<a class="headerlink" href="#step-2-installation-on-the-card" title="Permalink to this heading">¶</a></h3>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>FOR VCK5000 PLATFORMS ONLY. From Tools version 2022.1 onwards, new cards or cards with pre-2022.1 platforms installed must be explicitly migrated. Please see the <a class="reference internal" href="vck5000_migration.html#vck5000-migration-guide"><span class="std std-ref">VCK5000 Migration Guide</span></a> to complete the steps for migration. After which continue to <a class="reference internal" href="#step3-validating-platform-installation">step 3</a> to complete installation.</p>
+</div>
+<p>It may be necessary to setup the XRT environment to use the <code class="docutils literal notranslate"><span class="pre">xbmgmt</span></code> utility below. See <a class="reference internal" href="#xrt-environment-setup">XRT environment setup</a>.</p>
+<blockquote>
+<div><ol class="loweralpha">
+<li><p>Flash the platform firmware on the card.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>xbmgmt<span class="w"> </span>program<span class="w"> </span>--base<span class="w"> </span>shell<span class="w"> </span>--device<span class="w"> </span>&lt;Management<span class="w"> </span>BDF&gt;<span class="w"> </span>--image<span class="w"> </span>&lt;platform<span class="w"> </span>name&gt;
+</pre></div>
+</div>
+<p>To find the correct &lt;platform name&gt; see <a class="reference internal" href="#alveo-versal-deployment-packages-table">Alveo Versal Deployment Packages Table</a> above.
+To find &lt;Management BDF&gt; see <a class="reference internal" href="#obtaining-card-bdf-values">Obtaining Card BDF Values</a></p>
+<p>A message similar to the following will be displayed after successfully flashing the card:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">1</span><span class="w"> </span>device<span class="o">(</span>s<span class="o">)</span><span class="w"> </span>flashed<span class="w"> </span>successfully.
+
+****************************************************
+Cold<span class="w"> </span>reboot<span class="w"> </span>machine<span class="w"> </span>to<span class="w"> </span>load<span class="w"> </span>the<span class="w"> </span>new<span class="w"> </span>image<span class="w"> </span>on<span class="w"> </span>device<span class="o">(</span>s<span class="o">)</span>.
+****************************************************
+</pre></div>
+</div>
+</div></blockquote>
+<p>If the card has already been flashed with the current platform firmware, you will see a message similar to the following:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Device<span class="o">(</span>s<span class="o">)</span><span class="w"> </span>up-to-date<span class="w"> </span>and<span class="w"> </span><span class="k">do</span><span class="w"> </span>not<span class="w"> </span>need<span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>flashed.
+</pre></div>
+</div>
+</div></blockquote>
+<div class="admonition-info admonition">
+<p class="admonition-title">Info</p>
+<p>Flashing can take several minutes.
+If you have multiple cards installed in the system, you must run the above xbmgmt program command separately for each card.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not enter Ctrl + c in the terminal while the firmware is flashing as this can cause the card to become inoperable.</p>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Cold</span> <span class="pre">boot</span></code> the machine to load the new firmware image on the FPGA.</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Ensure a <code class="docutils literal notranslate"><span class="pre">cold</span> <span class="pre">boot</span></code> has been performed. The image will not load from flash if the machine is only warm rebooted e.g. ‘sudo reboot’. If unsure, power off the machine and power it on again.</p>
+</div>
+</li>
+<li><p>Run the following command to update the SC firmware on the card. It is the identical command used to flash the platform firmware on the card.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>xbmgmt<span class="w"> </span>program<span class="w"> </span>--base<span class="w"> </span>sc<span class="w"> </span>--device<span class="w"> </span>&lt;Management<span class="w"> </span>BDF&gt;<span class="w"> </span>--image<span class="w"> </span>&lt;base<span class="w"> </span>name&gt;
+</pre></div>
+</div>
+<div class="admonition-info admonition">
+<p class="admonition-title">Info</p>
+<p>Updating the SC firmware can take several minutes.
+If you have multiple cards installed in the system, you must run the above xbmgmt program command separately for each card.</p>
+</div>
+<p>A message similar to the following will be displayed after a successful SC firmware update, where the device Management BDF is given in square brackets.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Report
+<span class="o">[</span><span class="m">0000</span>:af:00.0<span class="o">]</span><span class="w"> </span>:<span class="w"> </span>Successfully<span class="w"> </span>flashed
+<span class="m">1</span><span class="w"> </span>device<span class="o">(</span>s<span class="o">)</span><span class="w"> </span>flashed<span class="w"> </span>successfully.
+******************************************************************
+Warm<span class="w"> </span>reboot<span class="w"> </span>is<span class="w"> </span>required<span class="w"> </span>to<span class="w"> </span>recognize<span class="w"> </span>new<span class="w"> </span>SC<span class="w"> </span>image<span class="w"> </span>on<span class="w"> </span>the<span class="w"> </span>device.
+******************************************************************
+</pre></div>
+</div>
+</div></blockquote>
+<p>If the card already has the current firmware, a message similar to the following is displayed and no additional installation steps are necessary.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Device<span class="o">(</span>s<span class="o">)</span><span class="w"> </span>up-to-date<span class="w"> </span>and<span class="w"> </span><span class="k">do</span><span class="w"> </span>not<span class="w"> </span>need<span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>flashed.
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Warm reboot the system for XRT to recognize the new SC image.</p></li>
+</ol>
+</div></blockquote>
+<p>The installation for deployment is now complete. The following steps can optionally be used to confirm the platform installation is fully operational.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="step3-validating-platform-installation">
+<span id="alveo-versal-deployment-package-installation-step-3"></span><h3>Step3 Validating Platform Installation<a class="headerlink" href="#step3-validating-platform-installation" title="Permalink to this heading">¶</a></h3>
+<p>After fully installing XRT and the deployment platform, installation can be verified using the following commands, which are explained in more detail below:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>lspci</p></li>
+<li><p><a class="reference external" href="https://xilinx.github.io/XRT/master/html/xbmgmt.html">xbmgmt examine</a></p></li>
+<li><p><a class="reference external" href="https://xilinx.github.io/XRT/master/html/xbutil.html">xbutil validate</a></p></li>
+<li><p><a class="reference external" href="https://xilinx.github.io/XRT/master/html/xbutil.html">xbutil examine</a></p></li>
+</ul>
+</div></blockquote>
+<p>The lspci Linux command is used to confirm the card is seen by the OS.</p>
+<p>The additional commands are XRT utilities used to validate and identify the installed card(s) and report additional card details including thermal and electrical status, memory, PCIe®, platform name, and system information.</p>
+<blockquote>
+<div><ol class="loweralpha">
+<li><p>Checking for PCIe card enumeration on lspci - Enter the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>lspci<span class="w"> </span>-vd<span class="w"> </span>10ee:
+</pre></div>
+</div>
+<p>If the card is successfully installed and found by the operating system, you will see a message similar to the following. Note that for each card, there will be two physical functions found: one for management and one for user. See <a class="reference internal" href="#obtaining-card-bdf-values">Obtaining Card BDF Values</a> for additional details.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">02</span>:00.0<span class="w"> </span>Memory<span class="w"> </span>controller:<span class="w"> </span>Xilinx®<span class="w"> </span>Corporation<span class="w"> </span>Device<span class="w"> </span><span class="m">5048</span>
+<span class="w">   </span>Subsystem:<span class="w"> </span>Xilinx®<span class="w"> </span>Corporation<span class="w"> </span>Device<span class="w"> </span>000e
+<span class="w">   </span>Physical<span class="w"> </span>Slot:<span class="w"> </span><span class="m">1</span>
+<span class="w">   </span>Flags:<span class="w"> </span>bus<span class="w"> </span>master,<span class="w"> </span>fast<span class="w"> </span>devsel,<span class="w"> </span>latency<span class="w"> </span><span class="m">0</span>,<span class="w"> </span>IRQ<span class="w"> </span><span class="m">26</span>,<span class="w"> </span>NUMA<span class="w"> </span>node<span class="w"> </span><span class="m">0</span>
+<span class="w">   </span>Memory<span class="w"> </span>at<span class="w"> </span>f0000000<span class="w"> </span><span class="o">(</span><span class="m">64</span>-bit,<span class="w"> </span>prefetchable<span class="o">)</span><span class="w"> </span><span class="o">[</span><span class="nv">size</span><span class="o">=</span>128M<span class="o">]</span>
+<span class="w">   </span>Memory<span class="w"> </span>at<span class="w"> </span>f8000000<span class="w"> </span><span class="o">(</span><span class="m">64</span>-bit,<span class="w"> </span>prefetchable<span class="o">)</span><span class="w"> </span><span class="o">[</span><span class="nv">size</span><span class="o">=</span>128K<span class="o">]</span>
+<span class="w">   </span>Capabilities:<span class="w"> </span><span class="o">[</span><span class="m">40</span><span class="o">]</span><span class="w"> </span>Power<span class="w"> </span>Management<span class="w"> </span>version<span class="w"> </span><span class="m">3</span>
+<span class="w">   </span>Capabilities:<span class="w"> </span><span class="o">[</span><span class="m">48</span><span class="o">]</span><span class="w"> </span>MSI:<span class="w"> </span>Enable-<span class="w"> </span><span class="nv">Count</span><span class="o">=</span><span class="m">1</span>/1<span class="w"> </span>Maskable-<span class="w"> </span>64bit+
+<span class="w">   </span>Capabilities:<span class="w"> </span><span class="o">[</span><span class="m">60</span><span class="o">]</span><span class="w"> </span>MSI-X:<span class="w"> </span>Enable-<span class="w"> </span><span class="nv">Count</span><span class="o">=</span><span class="m">32</span><span class="w"> </span>Masked-
+<span class="w">   </span>Capabilities:<span class="w"> </span><span class="o">[</span><span class="m">70</span><span class="o">]</span><span class="w"> </span>Express<span class="w"> </span>Endpoint,<span class="w"> </span>MSI<span class="w"> </span><span class="m">00</span>
+<span class="w">   </span>Capabilities:<span class="w"> </span><span class="o">[</span><span class="m">100</span><span class="o">]</span><span class="w"> </span>Advanced<span class="w"> </span>Error<span class="w"> </span>Reporting
+<span class="w">   </span>Capabilities:<span class="w"> </span><span class="o">[</span><span class="m">180</span><span class="o">]</span><span class="w"> </span>Alternative<span class="w"> </span>Routing-ID<span class="w"> </span>Interpretation<span class="w"> </span><span class="o">(</span>ARI<span class="o">)</span>
+<span class="w">   </span>Capabilities:<span class="w"> </span><span class="o">[</span>1c0<span class="o">]</span><span class="w"> </span><span class="c1">#19</span>
+<span class="w">   </span>Capabilities:<span class="w"> </span><span class="o">[</span>3a0<span class="o">]</span><span class="w"> </span><span class="c1">#25</span>
+<span class="w">   </span>Capabilities:<span class="w"> </span><span class="o">[</span><span class="m">600</span><span class="o">]</span><span class="w"> </span>Vendor<span class="w"> </span>Specific<span class="w"> </span>Information:<span class="w"> </span><span class="nv">ID</span><span class="o">=</span><span class="m">0020</span><span class="w"> </span><span class="nv">Rev</span><span class="o">=</span><span class="m">0</span><span class="w"> </span><span class="nv">Len</span><span class="o">=</span><span class="m">010</span><span class="w"> </span>&lt;?&gt;
+<span class="w">   </span>Kernel<span class="w"> </span>driver<span class="w"> </span><span class="k">in</span><span class="w"> </span>use:<span class="w"> </span>xclmgmt
+<span class="w">   </span>Kernel<span class="w"> </span>modules:<span class="w"> </span>xclmgmt
+<span class="m">02</span>:00.1<span class="w"> </span>Memory<span class="w"> </span>controller:<span class="w"> </span>Xilinx®<span class="w"> </span>Corporation<span class="w"> </span>Device<span class="w"> </span><span class="m">5049</span>
+<span class="w">   </span>Subsystem:<span class="w"> </span>Xilinx®<span class="w"> </span>Corporation<span class="w"> </span>Device<span class="w"> </span>000e
+<span class="w">   </span>Physical<span class="w"> </span>Slot:<span class="w"> </span><span class="m">1</span>
+<span class="w">   </span>Flags:<span class="w"> </span>bus<span class="w"> </span>master,<span class="w"> </span>fast<span class="w"> </span>devsel,<span class="w"> </span>latency<span class="w"> </span><span class="m">0</span>,<span class="w"> </span>IRQ<span class="w"> </span><span class="m">68</span>,<span class="w"> </span>NUMA<span class="w"> </span>node<span class="w"> </span><span class="m">0</span>
+<span class="w">   </span>Memory<span class="w"> </span>at<span class="w"> </span>f8020000<span class="w"> </span><span class="o">(</span><span class="m">64</span>-bit,<span class="w"> </span>prefetchable<span class="o">)</span><span class="w"> </span><span class="o">[</span><span class="nv">size</span><span class="o">=</span>64K<span class="o">]</span>
+<span class="w">   </span>Memory<span class="w"> </span>at<span class="w"> </span>e0000000<span class="w"> </span><span class="o">(</span><span class="m">64</span>-bit,<span class="w"> </span>prefetchable<span class="o">)</span><span class="w"> </span><span class="o">[</span><span class="nv">size</span><span class="o">=</span>256M<span class="o">]</span>
+<span class="w">   </span>Capabilities:<span class="w"> </span><span class="o">[</span><span class="m">40</span><span class="o">]</span><span class="w"> </span>Power<span class="w"> </span>Management<span class="w"> </span>version<span class="w"> </span><span class="m">3</span>
+<span class="w">   </span>Capabilities:<span class="w"> </span><span class="o">[</span><span class="m">48</span><span class="o">]</span><span class="w"> </span>MSI:<span class="w"> </span>Enable-<span class="w"> </span><span class="nv">Count</span><span class="o">=</span><span class="m">1</span>/1<span class="w"> </span>Maskable-<span class="w"> </span>64bit+
+<span class="w">   </span>Capabilities:<span class="w"> </span><span class="o">[</span><span class="m">60</span><span class="o">]</span><span class="w"> </span>MSI-X:<span class="w"> </span>Enable-<span class="w"> </span><span class="nv">Count</span><span class="o">=</span><span class="m">32</span><span class="w"> </span>Masked-
+<span class="w">   </span>Capabilities:<span class="w"> </span><span class="o">[</span><span class="m">70</span><span class="o">]</span><span class="w"> </span>Express<span class="w"> </span>Endpoint,<span class="w"> </span>MSI<span class="w"> </span><span class="m">00</span>
+<span class="w">   </span>Capabilities:<span class="w"> </span><span class="o">[</span><span class="m">100</span><span class="o">]</span><span class="w"> </span>Advanced<span class="w"> </span>Error<span class="w"> </span>Reporting
+<span class="w">   </span>Capabilities:<span class="w"> </span><span class="o">[</span><span class="m">180</span><span class="o">]</span><span class="w"> </span>Alternative<span class="w"> </span>Routing-ID<span class="w"> </span>Interpretation<span class="w"> </span><span class="o">(</span>ARI<span class="o">)</span>
+<span class="w">   </span>Capabilities:<span class="w"> </span><span class="o">[</span><span class="m">600</span><span class="o">]</span><span class="w"> </span>Vendor<span class="w"> </span>Specific<span class="w"> </span>Information:<span class="w"> </span><span class="nv">ID</span><span class="o">=</span><span class="m">0020</span><span class="w"> </span><span class="nv">Rev</span><span class="o">=</span><span class="m">0</span><span class="w"> </span><span class="nv">Len</span><span class="o">=</span><span class="m">010</span><span class="w"> </span>&lt;?&gt;
+<span class="w">   </span>Kernel<span class="w"> </span>driver<span class="w"> </span><span class="k">in</span><span class="w"> </span>use:<span class="w"> </span>xocl
+<span class="w">   </span>Kernel<span class="w"> </span>modules:<span class="w"> </span>xocl
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Confirm Firmware Installation</p>
+<p>When a card has successfully been installed and the firmware has been updated, both entries for Platform and the satellite controller (SC) version installed on the card and the system must match. If they do not match, the system will be unable to correctly run applications on your card.</p>
+<p>To confirm they match, run the following command and visually compare the <code class="docutils literal notranslate"><span class="pre">Platform</span></code>, <code class="docutils literal notranslate"><span class="pre">Platform</span> <span class="pre">UUID</span></code> and <code class="docutils literal notranslate"><span class="pre">SC</span> <span class="pre">Version</span></code> entries under ‘Flashable partitions running on FPGA’ and ‘Flashable partitions installed in system’ match.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>xbmgmt<span class="w"> </span>examine<span class="w"> </span>-device<span class="w"> </span>&lt;Management<span class="w"> </span>BDF&gt;<span class="w"> </span>-r<span class="w"> </span>platform
+</pre></div>
+</div>
+<p>The response to this command is shown below. Please check the following information for valid operation.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">Platform</span></code> name of <strong>running</strong> and <strong>installed</strong> matches expected, see <a class="reference internal" href="#alveo-versal-deployment-packages-table">Alveo Versal Deployment Packages Table</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SC</span> <span class="pre">Version</span></code> of <strong>running</strong> and <strong>installed</strong> matches, see <a class="reference internal" href="#alveo-versal-deployment-packages-table">Alveo Versal Deployment Packages Table</a> for expected SC Version</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Platform</span> <span class="pre">UUID</span></code> of <strong>running</strong> and <strong>installed</strong> matches, see <a class="reference internal" href="#alveo-versal-deployment-packages-table">Alveo Versal Deployment Packages Table</a> for expected Platform UUID</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-------------------------------------------------------
+<span class="m">1</span>/1<span class="w"> </span><span class="o">[</span><span class="m">0000</span>:d8:00.0<span class="o">]</span><span class="w"> </span>:<span class="w"> </span>xilinx_vck5000_gen4x8_xdma_base_2
+-------------------------------------------------------
+Flash<span class="w"> </span>properties
+Type<span class="w">                 </span>:<span class="w"> </span>ospi_xgq
+Serial<span class="w"> </span>Number<span class="w">        </span>:<span class="w"> </span>N/A
+
+Device<span class="w"> </span>properties
+Type<span class="w">                 </span>:<span class="w"> </span>vck5000
+Name<span class="w">                 </span>:<span class="w"> </span>N/A
+Config<span class="w"> </span>Mode<span class="w">          </span>:<span class="w"> </span><span class="m">0</span>
+Max<span class="w"> </span>Power<span class="w">            </span>:<span class="w"> </span>N/A
+
+Flashable<span class="w"> </span>partitions<span class="w"> </span>running<span class="w"> </span>on<span class="w"> </span>FPGA
+Platform<span class="w">             </span>:<span class="w"> </span>xilinx_vck5000_gen4x8_xdma_base_2
+SC<span class="w"> </span>Version<span class="w">           </span>:<span class="w"> </span><span class="m">4</span>.4.32
+Platform<span class="w"> </span>UUID<span class="w">        </span>:<span class="w"> </span>539C76AC-F219-2CDC-B9DB-69A6450407C0
+Interface<span class="w"> </span>UUID<span class="w">       </span>:<span class="w"> </span>1782B562-019C-AB41-EE85-7964621BB773
+
+Flashable<span class="w"> </span>partitions<span class="w"> </span>installed<span class="w"> </span><span class="k">in</span><span class="w"> </span>system
+Platform<span class="w">             </span>:<span class="w"> </span>xilinx_vck5000_gen4x8_xdma_base_2
+SC<span class="w"> </span>Version<span class="w">           </span>:<span class="w"> </span><span class="m">4</span>.4.32
+Platform<span class="w"> </span>UUID<span class="w">        </span>:<span class="w"> </span>539C76AC-F219-2CDC-B9DB-69A6450407C0
+
+Bootable<span class="w"> </span>Partitions:
+Default<span class="w">              </span>:<span class="w"> </span>ACTIVE
+Backup<span class="w">               </span>:<span class="w"> </span>INACTIVE
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The response above may change slightly with different XRT versions however the important content should remain the same.</p>
+</div>
+</li>
+<li><p>Card Validation</p>
+<p>Card installation can be validated using the ‘xbutil validate’ command. This command performs various tests and checks on the card including PCIe link status, SC version status, memory and bandwidth tests and auxiliary power connection where applicable. Full command details can be found in <a class="reference external" href="https://xilinx.github.io/XRT/master/html/xbutil.html">xbutil</a> documentation. Depending on the card tested, not all tests are valid or may require the function to be enabled first (e.g. Peer-2-Peer).</p>
+<p>Use the following command to run the card validation test:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>xbutil<span class="w"> </span>validate<span class="w"> </span>-d<span class="w"> </span>&lt;User<span class="w"> </span>BDF&gt;
+</pre></div>
+</div>
+<p>Where <code class="docutils literal notranslate"><span class="pre">User</span> <span class="pre">BDF</span></code> is the PCIe address of the card to be validated. See <a class="reference internal" href="#obtaining-card-bdf-values">Obtaining Card BDF Values</a> to obtain the user BDF value.</p>
+<p>If the card was installed and validated successfully, a message similar to the following will be displayed. Additional validation details are displayed by appending the <code class="docutils literal notranslate"><span class="pre">--verbose</span></code> option to the command.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Starting<span class="w"> </span>validation<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="m">1</span><span class="w"> </span>devices
+Platform<span class="w">         </span>:<span class="w"> </span>xilinx_vck5000_gen3x16_xdma_base_1
+SC<span class="w"> </span>Version<span class="w">        </span>:<span class="w"> </span><span class="m">4</span>.4.12
+Platform<span class="w"> </span>ID<span class="w">        </span>:<span class="w"> </span>1E56042E-C345-CF41-5D66-4E9EE73451FC
+-------------------------------------------------------------------------------
+Test<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">[</span><span class="m">0000</span>:01:00.1<span class="o">]</span><span class="w">   </span>:<span class="w"> </span>PCIE<span class="w"> </span>link
+<span class="w">   </span>Test<span class="w"> </span>Status<span class="w">      </span>:<span class="w"> </span><span class="o">[</span>PASSED<span class="o">]</span>
+-------------------------------------------------------------------------------
+Test<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">[</span><span class="m">0000</span>:01:00.1<span class="o">]</span><span class="w">   </span>:<span class="w"> </span>SC<span class="w"> </span>version
+<span class="w">   </span>Test<span class="w"> </span>Status<span class="w">      </span>:<span class="w"> </span><span class="o">[</span>PASSED<span class="o">]</span>
+-------------------------------------------------------------------------------
+Test<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="o">[</span><span class="m">0000</span>:01:00.1<span class="o">]</span><span class="w">   </span>:<span class="w"> </span>Verify<span class="w"> </span>kernel
+Test<span class="w"> </span>Status<span class="w">        </span>:<span class="w"> </span><span class="o">[</span>PASSED<span class="o">]</span>
+-------------------------------------------------------------------------------
+Test<span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="o">[</span><span class="m">0000</span>:01:00.1<span class="o">]</span><span class="w">   </span>:<span class="w"> </span>DMA
+Details<span class="w">          </span>:<span class="w"> </span>Host<span class="w"> </span>-&gt;<span class="w"> </span>PCIe<span class="w"> </span>-&gt;<span class="w"> </span>FPGA<span class="w"> </span>write<span class="w"> </span><span class="nv">bandwidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10820</span>.6<span class="w"> </span>MB/s
+<span class="w">               </span>Host<span class="w"> </span>&lt;-<span class="w"> </span>PCIe<span class="w"> </span>&lt;-<span class="w"> </span>FPGA<span class="w"> </span><span class="nb">read</span><span class="w"> </span><span class="nv">bandwidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10513</span>.8<span class="w"> </span>MB/s
+Test<span class="w"> </span>Status<span class="w">        </span>:<span class="w"> </span><span class="o">[</span>PASSED<span class="o">]</span>
+-------------------------------------------------------------------------------
+Test<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="o">[</span><span class="m">0000</span>:01:00.1<span class="o">]</span><span class="w">   </span>:<span class="w"> </span>iops
+Details<span class="w">          </span>:<span class="w"> </span>IOPS:<span class="w"> </span><span class="m">132544</span><span class="w"> </span><span class="o">(</span>hello<span class="o">)</span>
+<span class="w">   </span>Test<span class="w"> </span>Status<span class="w">      </span>:<span class="w"> </span><span class="o">[</span>PASSED<span class="o">]</span>
+-------------------------------------------------------------------------------
+Test<span class="w"> </span><span class="m">6</span><span class="w"> </span><span class="o">[</span><span class="m">0000</span>:01:00.1<span class="o">]</span><span class="w">   </span>:<span class="w"> </span>Bandwidth<span class="w"> </span>kernel
+Details<span class="w">          </span>:<span class="w"> </span>Maximum<span class="w"> </span>throughput:<span class="w"> </span><span class="m">50540</span><span class="w"> </span>MB/s
+<span class="w">   </span>Test<span class="w"> </span>Status<span class="w">      </span>:<span class="w"> </span><span class="o">[</span>PASSED<span class="o">]</span>
+-------------------------------------------------------------------------------
+Validation<span class="w"> </span>completed.<span class="w"> </span>Please<span class="w"> </span>run<span class="w"> </span>the<span class="w"> </span><span class="nb">command</span><span class="w"> </span><span class="s1">&#39;--verbose&#39;</span><span class="w"> </span>option<span class="w"> </span><span class="k">for</span><span class="w"> </span>more
+details
+</pre></div>
+</div>
+</div></blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For a quicker validation check please run <code class="docutils literal notranslate"><span class="pre">xbutil</span> <span class="pre">validate</span> <span class="pre">-r</span> <span class="pre">quick</span></code>. This option does not check kernel memory performance.</p>
+</div>
+</li>
+<li><p>Temperature and Electrical Status</p>
+<p>To monitor the current electrical and temperature status, use the following commands:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>xbutil<span class="w"> </span>examine<span class="w"> </span>--device<span class="w"> </span>&lt;user<span class="w"> </span>BDF&gt;<span class="w"> </span>--report<span class="w"> </span>thermal<span class="w"> </span>electrical
+</pre></div>
+</div>
+<p>It will generate an output similar to the following. For command details see the xbutil documentation.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>--------------------------------------------------------
+<span class="m">1</span>/1<span class="w"> </span><span class="o">[</span><span class="m">0000</span>:03:00.1<span class="o">]</span><span class="w"> </span>:<span class="w"> </span>xilinx_vck5000_gen3x16_xdma_base_1
+--------------------------------------------------------
+Thermals
+PCB<span class="w"> </span>Top<span class="w"> </span>Front<span class="w"> </span>:<span class="w"> </span><span class="m">24</span><span class="w"> </span>C
+PCB<span class="w"> </span>Top<span class="w"> </span>Rear<span class="w"> </span>:<span class="w"> </span><span class="m">28</span><span class="w"> </span>C
+FPGA<span class="w">     </span>:<span class="w"> </span><span class="m">36</span><span class="w"> </span>C
+
+Electrical
+Max<span class="w"> </span>Power<span class="w">   </span>:<span class="w"> </span><span class="m">225</span><span class="w"> </span>Watts
+Power<span class="w">     </span>:<span class="w"> </span><span class="m">25</span>.839361<span class="w"> </span>Watts
+Power<span class="w"> </span>Warning<span class="w"> </span>:<span class="w"> </span><span class="nb">false</span>
+
+Power<span class="w"> </span>Rails<span class="w"> </span>:<span class="w"> </span>Voltage<span class="w"> </span>Current
+<span class="m">12</span><span class="w"> </span>Volts<span class="w"> </span>Auxillary<span class="w">  </span>:<span class="w"> </span><span class="m">24</span>.376<span class="w"> </span>V,<span class="w"> </span><span class="m">0</span>.603<span class="w"> </span>A
+<span class="m">12</span><span class="w"> </span>Volts<span class="w"> </span>PCI<span class="w"> </span>Express<span class="w"> </span>:<span class="w"> </span><span class="m">12</span>.149<span class="w"> </span>V,<span class="w"> </span><span class="m">0</span>.917<span class="w"> </span>A
+<span class="m">3</span>.3<span class="w"> </span>Volts<span class="w"> </span>PCI<span class="w"> </span>Express<span class="w"> </span>:<span class="w"> </span><span class="m">3</span>.279<span class="w"> </span>V
+<span class="m">3</span>.3<span class="w"> </span>Volts<span class="w"> </span>Auxillary<span class="w">  </span>:<span class="w"> </span><span class="m">3</span>.327<span class="w"> </span>V
+Internal<span class="w"> </span>FPGA<span class="w"> </span>Vcc<span class="w">   </span>:<span class="w"> </span><span class="m">0</span>.803<span class="w"> </span>V,<span class="w"> </span><span class="m">48</span>.000<span class="w"> </span>A
+DDR<span class="w"> </span>Vpp<span class="w"> </span>Top<span class="w">      </span>:<span class="w"> </span><span class="m">2</span>.492<span class="w"> </span>V
+<span class="m">5</span>.5<span class="w"> </span>Volts<span class="w"> </span>System<span class="w">   </span>:<span class="w"> </span><span class="m">5</span>.011<span class="w"> </span>V
+Vcc<span class="w"> </span><span class="m">1</span>.2<span class="w"> </span>Volts<span class="w"> </span>Top<span class="w">   </span>:<span class="w"> </span><span class="m">1</span>.203<span class="w"> </span>V
+<span class="m">1</span>.8<span class="w"> </span>Volts<span class="w"> </span>Top<span class="w">     </span>:<span class="w"> </span><span class="m">1</span>.803<span class="w"> </span>V
+<span class="m">0</span>.9<span class="w"> </span>Volts<span class="w"> </span>Vcc<span class="w">     </span>:<span class="w"> </span><span class="m">0</span>.878<span class="w"> </span>V
+Mgt<span class="w"> </span>Vtt<span class="w">        </span>:<span class="w"> </span><span class="m">1</span>.197<span class="w"> </span>V
+<span class="m">3</span>.3<span class="w"> </span>Volts<span class="w"> </span>Vcc<span class="w">     </span>:<span class="w"> </span><span class="m">3</span>.270<span class="w"> </span>V
+Vcc<span class="w"> </span><span class="m">1</span>.2<span class="w"> </span>Volts<span class="w"> </span>i<span class="w">    </span>:<span class="w"> </span><span class="m">2</span>.200<span class="w"> </span>A
+Vcc<span class="w"> </span>Auxillary<span class="w">     </span>:<span class="w"> </span><span class="m">1</span>.508<span class="w"> </span>V
+Vcc<span class="w"> </span>Auxillary<span class="w"> </span>Pmc<span class="w">   </span>:<span class="w"> </span><span class="m">1</span>.512<span class="w"> </span>V
+Vcc<span class="w"> </span>Ram<span class="w">        </span>:<span class="w"> </span><span class="m">0</span>.800<span class="w"> </span>V
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+</div></blockquote>
+</div>
+<hr class="docutils" />
+<div class="section" id="next-steps">
+<h3>Next Steps<a class="headerlink" href="#next-steps" title="Permalink to this heading">¶</a></h3>
+<p>What you have done so far allows you to deploy and run accelerated applications on your system. If you are an application developer who wants to develop and deliver accelerated applications, install the <a class="reference external" href="https://docs.xilinx.com/r/en-US/ug1393-vitis-application-acceleration/Introduction-to-the-Vitis-Environment-for-Acceleration">Vitis® Unified Software Platform</a>. It allows you to develop, debug, and optimize accelerated applications. Installation instructions can be found in Vitis Unified Software Platform Documentation: Application Acceleration Development (UG1393).</p>
+<p>For complete details on the development flow and getting started in Vitis, see <a class="reference external" href="https://docs.xilinx.com/r/en-US/ug1393-vitis-application-acceleration/Introduction-to-the-Vitis-Environment-for-Acceleration">Vitis® Unified Software Platform</a>. For designing an application using the Versal AI Engines see <a class="reference external" href="https://docs.xilinx.com/r/en-US/ug1079-ai-engine-kernel-coding/Overview">AI Engine Kernel Coding Best Practices Guide</a>.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="obtaining-card-bdf-values">
+<span id="id3"></span><h3>Obtaining Card BDF Values<a class="headerlink" href="#obtaining-card-bdf-values" title="Permalink to this heading">¶</a></h3>
+<p>The following example is given for the <code class="docutils literal notranslate"><span class="pre">xilinx_vck5000_gen4x8_xdma_base_2</span></code> platform but the same approach can be taken with any Alveo Versal Data Center accelerator platform.</p>
+<p>Each Alveo Versal card is assigned at minimum a Management and a User BDF (Bus:Device:Function). For a given card, the management and user BDF values differ only by the function digit.</p>
+<p>To obtain the Management and User BDF values for installed cards, use the following commands.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The procedure requires XRT to be installed and the environment to be setup. See <a class="reference internal" href="#xrt-environment-setup">XRT environment setup</a>.</p>
+</div>
+<div class="section" id="management-bdf">
+<h4>Management BDF<a class="headerlink" href="#management-bdf" title="Permalink to this heading">¶</a></h4>
+<p>The Management BDF is used by the <code class="docutils literal notranslate"><span class="pre">xbmgmt</span></code> utility to perform operations such as platform update and XCLBIN download. To display the Management BDF values of installed cards, use the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>xbmgmt<span class="w"> </span>examine
+</pre></div>
+</div>
+<p>The Management BDF values of installed cards are given in the square brackets under ‘Devices present’. In the below example, only one device is present and has a management BDF of 0000:d8:00.0.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Devices<span class="w"> </span>present
+BDF<span class="w">             </span>:<span class="w">  </span>Shell<span class="w">           </span>Platform<span class="w"> </span>UUID<span class="w">  </span>Device<span class="w"> </span>ID
+<span class="o">[</span><span class="m">0000</span>:d8:00.0<span class="o">]</span><span class="w">  </span>:<span class="w">  </span>xilinx_vck5000<span class="w">  </span>0x0<span class="w">            </span>mgmt<span class="o">(</span><span class="nv">inst</span><span class="o">=</span><span class="m">55296</span><span class="o">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="user-bdf">
+<h4>User BDF<a class="headerlink" href="#user-bdf" title="Permalink to this heading">¶</a></h4>
+<p>The User BDF is used by the <code class="docutils literal notranslate"><span class="pre">xbutil</span></code> utility to run applications such as <code class="docutils literal notranslate"><span class="pre">validate</span></code> and to query the status of the platform and application. To display the User BDF values of installed cards, use the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>xbutil<span class="w"> </span>examine
+</pre></div>
+</div>
+<p>The User BDF values of installed cards are given in the square brackets under ‘Devices present’. In the below example, only one device is present and has a user BDF of 0000:d8:00.1.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Devices<span class="w"> </span>present
+BDF<span class="w">             </span>:<span class="w">  </span>Shell<span class="w">           </span>Platform<span class="w"> </span>UUID<span class="w">  </span>Device<span class="w"> </span>ID
+<span class="o">[</span><span class="m">0000</span>:d8:00.1<span class="o">]</span><span class="w">  </span>:<span class="w">  </span>xilinx_vck5000<span class="w">  </span>0x0<span class="w">            </span>user<span class="o">(</span><span class="nv">inst</span><span class="o">=</span><span class="m">128</span><span class="o">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="changing-xrt-and-target-platform-versions">
+<h3>Changing XRT and Target Platform Versions<a class="headerlink" href="#changing-xrt-and-target-platform-versions" title="Permalink to this heading">¶</a></h3>
+<p>Alveo Versal Data Center accelerator platforms and XRT revisions can change significantly between releases. To ensure a successful migration to a newer or older version of platform, carefully follow the instructions for your specific release pairing. Failure to adhere to these procedures can result in an unstable installation or other issues. In general, it is recommended to use the latest available versions which contain bug fixes and the newest features.</p>
+<div class="admonition-info admonition">
+<p class="admonition-title">Info</p>
+<p>For links to the available platform and XRT revisions, see <a class="reference internal" href="#alveo-versal-deployment-packages-table">Alveo Versal Deployment Packages Table</a>.</p>
+</div>
+<div class="section" id="redhat-and-centos">
+<h4>RedHat and CentOS<a class="headerlink" href="#redhat-and-centos" title="Permalink to this heading">¶</a></h4>
+<p>During upgrading, downgrading, or uninstalling, it can be useful to list the currently installed packages. To list the currently installed deployment platform package, run the following command in a Linux terminal:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>yum<span class="w"> </span>list<span class="w"> </span>installed<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>xilinx
+</pre></div>
+</div>
+<p>To list the currently installed XRT package, run the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>yum<span class="w"> </span>list<span class="w"> </span>installed<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>xrt
+</pre></div>
+</div>
+<p class="rubric">Installing Newer Packages</p>
+<p>Install the newest XRT and deployment platform on your card by following these steps. Currently, both packages must be upgraded concurrently.</p>
+<ol class="arabic simple">
+<li><p>Download the desired XRT and deployment platform packages and follow the installation procedure at <a class="reference internal" href="#step-1-redhat-and-centos-package-installation">Step 1 (RedHat and CentOS) Package Installation</a>.</p></li>
+</ol>
+<p class="rubric">Installing Older Packages</p>
+<p>To install older platforms, perform the following steps.</p>
+<ol class="arabic">
+<li><p>Remove the current XRT and shell versions.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>remove<span class="w"> </span>xrt
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Removing XRT should automatically remove all Alveo packages.
+Make sure that all of the platform packages are displayed in the output terminal after running the command. If not, manually list the packages using the list command at the beginning of this section, then delete the remaining packages using the <code class="docutils literal notranslate"><span class="pre">yum</span> <span class="pre">remove</span></code> command.</p>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Cold</span> <span class="pre">reboot</span></code> the system.</p></li>
+<li><p>Follow the installation procedures outlined in <a class="reference internal" href="#step-1-redhat-and-centos-package-installation">Step 1 (RedHat and CentOS) Package Installation</a>.</p></li>
+</ol>
+</div>
+<div class="section" id="ubuntu">
+<h4>Ubuntu<a class="headerlink" href="#ubuntu" title="Permalink to this heading">¶</a></h4>
+<p>During upgrading, downgrading, or uninstalling, it can be useful to list the currently installed packages. To list the currently installed deployment platform package, run the following command in a Linux terminal:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>apt<span class="w"> </span>list<span class="w"> </span>--installed<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>xilinx
+</pre></div>
+</div>
+<p>To list the currently installed XRT package, run the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>apt<span class="w"> </span>list<span class="w"> </span>--installed<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>xrt
+</pre></div>
+</div>
+<p class="rubric">Installing Newer Packages</p>
+<p>Install the newest XRT and deployment platform on your card by following these steps. Currently, both packages must be upgraded concurrently.</p>
+<ol class="arabic simple">
+<li><p>Download the desired XRT and deployment platform packages. Follow the installation procedure at <a class="reference internal" href="#step-1-ubuntu-package-installation">Step 1 (Ubuntu) Package Installation</a>.</p></li>
+</ol>
+<p class="rubric">Installing Older Packages</p>
+<p>To install older platforms, perform the following steps.</p>
+<ol class="arabic">
+<li><p>Remove the current XRT and shell versions.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>remove<span class="w"> </span>xrt
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Removing XRT should automatically remove all Alveo packages.
+Make sure that all of the platform packages are displayed in the output terminal after running the command. If not, manually list the packages using the list command at the beginning of this section, then delete the remaining packages using the <code class="docutils literal notranslate"><span class="pre">apt</span> <span class="pre">remove</span></code> command.</p>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Cold</span> <span class="pre">reboot</span></code> the system.</p></li>
+<li><p>Follow the installation procedures outlined in <a class="reference internal" href="#step-1-ubuntu-package-installation">Step 1 (Ubuntu) Package Installation</a>.</p></li>
+</ol>
+<hr class="docutils" />
+<p class="rubric">Xilinx Support</p>
+<p>For additional support resources such as Answers, Documentation, Downloads, and Alerts, see the <a class="reference external" href="http://www.xilinx.com/support">Xilinx Support pages</a>. For additional assistance, post your question on the Xilinx Community Forums – <a class="reference external" href="https://support.xilinx.com/s/topic/0TO2E000000YKXlWAO/alveo-accelerator-cards">Alveo Accelerator Card</a>.</p>
+<p class="rubric">License</p>
+<p>All software including scripts in this distribution are licensed under the Apache License, Version 2.0 (the “License”); you may not use this file except in compliance with the License.</p>
+<p>You may obtain a copy of the License at <a class="reference external" href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></p>
+<p>All images and documentation, including all debug and support documentation, are licensed under the Creative Commons (CC) Attribution 4.0 International License (the “CC-BY-4.0 License”); you may not use this file except in compliance with the CC-BY-4.0 License.</p>
+<p>You may obtain a copy of the CC-BY-4.0 License at
+<a class="reference external" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></p>
+<p>Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an “AS IS” BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          
+                  <style>
+                        .footer {
+                        position: fixed;
+                        left: 0;
+                        bottom: 0;
+                        width: 100%;
+                        }
+                  </style>
+				  
+				  <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="install_development.html" class="btn btn-neutral float-left" title="Installation Guide for Platform Development Packages" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="vck5000_migration.html" class="btn btn-neutral float-right" title="VCK5000 Migration Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022-2023, Advanced Micro Devices, Inc.
+      <span class="lastupdated">Last updated on January 17, 2023.
+      </span></p>
+  </div>
+
+
+
+										<div class="aem-Grid aem-Grid--16">
+											<div class="aem-GridColumn aem-GridColumn--xxxlarge--none aem-GridColumn--xsmall--16 aem-GridColumn--offset--xsmall--0 aem-GridColumn--xlarge--none aem-GridColumn--xxlarge--none aem-GridColumn--default--none aem-GridColumn--offset--large--1 aem-GridColumn--xlarge--12 aem-GridColumn--offset--default--0 aem-GridColumn--xxlarge--10 aem-GridColumn--offset--xlarge--2 aem-GridColumn--offset--xxlarge--3 aem-GridColumn--offset--xxxlarge--4 aem-GridColumn--xsmall--none aem-GridColumn--large--none aem-GridColumn aem-GridColumn--large--14 aem-GridColumn--xxxlarge--8 aem-GridColumn--default--16">
+												<div class="container-fluid sub-footer">
+
+													                    <div class="row">
+                        <div class="col-xs-24">
+                          <p><a target="_blank" href="https://www.amd.com/en/corporate/copyright">Terms and Conditions</a> | <a target="_blank" href="https://www.amd.com/en/corporate/privacy">Privacy</a> | <a target="_blank" href="https://www.amd.com/en/corporate/cookies">Cookie Policy</a> | <a target="_blank" href="https://www.amd.com/en/corporate/trademarks">Trademarks</a> | <a target="_blank" href="https://www.amd.com/system/files/documents/statement-human-trafficking-forced-labor.pdf">Statement on Forced Labor</a> | <a target="_blank" href="https://www.amd.com/en/corporate/competition">Fair and Open Competition</a> | <a target="_blank" href="https://www.amd.com/system/files/documents/amd-uk-tax-strategy.pdf">UK Tax Strategy</a> | <a target="_blank" href="https://docs.xilinx.com/v/u/9x6YvZKuWyhJId7y7RQQKA">Inclusive Terminology</a> | <a href="#cookiessettings" class="ot-sdk-show-settings">Cookies Settings</a></p>
+                        </div>
+                    </div>
+												</div>
+											</div>
+										</div>
+										
+</br>
+
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+
+</body>
+</html>

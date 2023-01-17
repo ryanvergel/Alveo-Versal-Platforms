@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+<!-- OneTrust Cookies Consent Notice start for xilinx.github.io -->
+
+<script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" data-document-language="true" type="text/javascript" charset="UTF-8" data-domain-script="03af8d57-0a04-47a6-8f10-322fa00d8fc7" ></script>
+<script type="text/javascript">
+function OptanonWrapper() { }
+</script>
+<!-- OneTrust Cookies Consent Notice end for xilinx.github.io -->
+<!-- Google Tag Manager -->
+<script type="text/plain" class="optanon-category-C0002">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5RHQV7');</script>
+<!-- End Google Tag Manager -->
+  <title>VCK5000 Migration Guide &mdash; Alveo Versal Vitis Platforms 2022.2 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Platform Overview" href="../architecture/arch_overview.html" />
+    <link rel="prev" title="Installation Guide for Platform Deployment Packages" href="install_deployment.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5RHQV7" height="0" width="0" style="display:none;visibility:hidden" class="optanon-category-C0002"></iframe></noscript>
+<!-- End Google Tag Manager --> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+            <a href="../../index.html" class="icon icon-home"> Alveo Versal Vitis Platforms
+          </a>
+              <div class="version">
+                2022.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="card_installation.html">Alveo Versal Card Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install_development.html">Installation Guide for Platform Development Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install_deployment.html">Installation Guide for Platform Deployment Packages</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">VCK5000 Migration Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#migration-steps">Migration Steps</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Platform Architecture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../architecture/arch_overview.html">Platform Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture/arch_features.html">Platform Features</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Platform User Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/ug_list.html">Alveo Versal Userguides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/ug_vck5000_gen3x16_xdma.html">VCK5000 Gen3x16 XDMA Vitis Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/ug_vck5000_gen4x8_xdma.html">VCK5000 Gen4x8 XDMA Vitis Platform</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Alveo Versal Vitis Platforms</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>VCK5000 Migration Guide</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/docs/getting-started/vck5000_migration.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="vck5000-migration-guide">
+<span id="id1"></span><h1>VCK5000 Migration Guide<a class="headerlink" href="#vck5000-migration-guide" title="Permalink to this heading">¶</a></h1>
+<p>When first installing any vck5000 shell from <code class="docutils literal notranslate"><span class="pre">vck5000_gen4x8_xdma_base_2</span></code> forwards (see <a class="reference internal" href="install_deployment.html#alveo-versal-deployment-packages-table"><span class="std std-ref">Table: Alveo Versal Deployment Packages</span></a>), it is necessary to execute this migration process rather than the standard platform installation. This operation is required to modify the formatting of the on-card OSPI flash for the later platforms.</p>
+<p>It may be necessary to setup the XRT environment to use the <code class="docutils literal notranslate"><span class="pre">xbmgmt</span></code> utility below. See <a class="reference internal" href="install_deployment.html#xrt-environment-setup"><span class="std std-ref">XRT environment setup:</span></a>.</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Migration only needs to be run once on a card. It is a one-way process. Once migrated it is not possible to revert the card to run pre-2022.1 platforms.</p>
+</div>
+<p>The process needs to be executed for the following two scenarios:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>A brand new VCK5000 card</p></li>
+<li><p>A VCK5000 card running an earlier platform such as <code class="docutils literal notranslate"><span class="pre">vck5000_gen3x16_xdma_base_1</span></code></p></li>
+</ul>
+</div></blockquote>
+<p>To determine whether migration is required run the following command. Note: It is assumed that Step 1 from <a class="reference internal" href="install_deployment.html#alveo-versal-deployment-package-installation-step-1"><span class="std std-ref">Alveo Versal Deployment Package Installation</span></a> has already been completed.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>xbmgmt<span class="w"> </span>examine<span class="w"> </span>--report<span class="w"> </span>platform<span class="w"> </span>--device<span class="w"> </span>&lt;Management<span class="w"> </span>BDF&gt;
+</pre></div>
+</div>
+<p>To find &lt;Management BDF&gt; see <a class="reference internal" href="install_deployment.html#obtaining-card-bdf-values"><span class="std std-ref">Obtaining Card BDF Values</span></a>.</p>
+<p>If the output from the command above contains the following then migration is needed:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>------------------------------------
+<span class="m">1</span>/1<span class="w"> </span><span class="o">[</span><span class="m">0000</span>:d8:00.0<span class="o">]</span><span class="w"> </span>:<span class="w"> </span>xilinx_vck5000
+------------------------------------
+Warning:<span class="w"> </span>Device<span class="w"> </span>is<span class="w"> </span>not<span class="w"> </span>ready<span class="w"> </span>-<span class="w"> </span>Limited<span class="w"> </span>functionality<span class="w"> </span>available<span class="w"> </span>with<span class="w"> </span>XRT<span class="w"> </span>tools.
+
+Flash<span class="w"> </span>properties
+<span class="w">  </span>Type<span class="w">                 </span>:<span class="w"> </span>ospi_versal
+<span class="w">  </span>Serial<span class="w"> </span>Number<span class="w">        </span>:<span class="w"> </span>N/A
+
+Device<span class="w"> </span>properties
+<span class="w">  </span>Type<span class="w">                 </span>:<span class="w"> </span>vck5000
+<span class="w">  </span>Name<span class="w">                 </span>:<span class="w"> </span>N/A
+<span class="w">  </span>Config<span class="w"> </span>Mode<span class="w">          </span>:<span class="w"> </span><span class="m">0</span>
+<span class="w">  </span>Max<span class="w"> </span>Power<span class="w">            </span>:<span class="w"> </span>N/A
+
+Flashable<span class="w"> </span>partitions<span class="w"> </span>running<span class="w"> </span>on<span class="w"> </span>FPGA
+<span class="w">  </span>Platform<span class="w">             </span>:<span class="w"> </span>xilinx_vck5000
+<span class="w">  </span>SC<span class="w"> </span>Version<span class="w">           </span>:<span class="w"> </span>INACTIVE
+<span class="w">  </span>Platform<span class="w"> </span>ID<span class="w">          </span>:<span class="w"> </span>0x0
+</pre></div>
+</div>
+<p>In particular if the <code class="docutils literal notranslate"><span class="pre">Flash</span> <span class="pre">properties:</span> <span class="pre">Type</span></code> is <code class="docutils literal notranslate"><span class="pre">ospi_versal</span></code> then migration is required.</p>
+<hr class="docutils" />
+<div class="section" id="migration-steps">
+<h2>Migration Steps<a class="headerlink" href="#migration-steps" title="Permalink to this heading">¶</a></h2>
+<p>Run the following command to migrate the card</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>/opt/xilinx/firmware/vck5000/gen4x8-xdma/base/migration/migrate.sh<span class="w"> </span>&lt;Management<span class="w"> </span>BDF&gt;
+</pre></div>
+</div>
+<p>When complete, cold reboot the host machine as requested.</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Ensure the host machine is <strong>cold</strong> rebooted to ensure the new platform configuration is loaded.</p>
+</div>
+<p>After cold reboot completes, the Satellite Controller on the card also needs to be updated. Issue the following commands</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>xbmgmt<span class="w"> </span>program<span class="w"> </span>--base<span class="w"> </span>--device<span class="w"> </span>&lt;Management<span class="w"> </span>BDF&gt;
+$<span class="w"> </span>timeout<span class="w"> </span><span class="m">40</span><span class="w"> </span>watch<span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="s1">&#39;xbmgmt examine --report vmr --device &lt;Management BDF&gt; --verbose | grep -i &quot;program progress&quot;&#39;</span>
+</pre></div>
+</div>
+<p>The last command outputs information similar to below</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Every<span class="w"> </span><span class="m">1</span>.0s:<span class="w"> </span>xbmgmt<span class="w"> </span>examine<span class="w"> </span>--report<span class="w"> </span>vmr<span class="w"> </span>--device<span class="w"> </span>d8:00.0<span class="w"> </span>--verbose<span class="w"> </span><span class="p">|</span>...<span class="w">  </span>Tue<span class="w"> </span>May<span class="w">  </span><span class="m">3</span><span class="w"> </span><span class="m">10</span>:30:36<span class="w"> </span><span class="m">2022</span>
+
+<span class="w">  </span>Program<span class="w"> </span>progress<span class="w">     </span>:<span class="w"> </span><span class="m">100</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Program</span> <span class="pre">progress</span></code> will increment from 0 to 100 to indicate SC upgrade progress. When this completes issue a cold reboot to complete the upgrade.</p>
+<p>Return to <a class="reference internal" href="install_deployment.html#alveo-versal-deployment-package-installation-step-3"><span class="std std-ref">Step3 Validating Platform Installation</span></a> to validate the installation.</p>
+<hr class="docutils" />
+<p class="rubric">Xilinx Support</p>
+<p>For additional support resources such as Answers, Documentation, Downloads, and Alerts, see the <a class="reference external" href="http://www.xilinx.com/support">Xilinx Support pages</a>. For additional assistance, post your question on the Xilinx Community Forums – <a class="reference external" href="https://support.xilinx.com/s/topic/0TO2E000000YKXlWAO/alveo-accelerator-cards">Alveo Accelerator Card</a>.</p>
+<p class="rubric">License</p>
+<p>All software including scripts in this distribution are licensed under the Apache License, Version 2.0 (the “License”); you may not use this file except in compliance with the License.</p>
+<p>You may obtain a copy of the License at <a class="reference external" href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></p>
+<p>All images and documentation, including all debug and support documentation, are licensed under the Creative Commons (CC) Attribution 4.0 International License (the “CC-BY-4.0 License”); you may not use this file except in compliance with the CC-BY-4.0 License.</p>
+<p>You may obtain a copy of the CC-BY-4.0 License at
+<a class="reference external" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></p>
+<p>Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an “AS IS” BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          
+                  <style>
+                        .footer {
+                        position: fixed;
+                        left: 0;
+                        bottom: 0;
+                        width: 100%;
+                        }
+                  </style>
+				  
+				  <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="install_deployment.html" class="btn btn-neutral float-left" title="Installation Guide for Platform Deployment Packages" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../architecture/arch_overview.html" class="btn btn-neutral float-right" title="Platform Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022-2023, Advanced Micro Devices, Inc.
+      <span class="lastupdated">Last updated on January 17, 2023.
+      </span></p>
+  </div>
+
+
+
+										<div class="aem-Grid aem-Grid--16">
+											<div class="aem-GridColumn aem-GridColumn--xxxlarge--none aem-GridColumn--xsmall--16 aem-GridColumn--offset--xsmall--0 aem-GridColumn--xlarge--none aem-GridColumn--xxlarge--none aem-GridColumn--default--none aem-GridColumn--offset--large--1 aem-GridColumn--xlarge--12 aem-GridColumn--offset--default--0 aem-GridColumn--xxlarge--10 aem-GridColumn--offset--xlarge--2 aem-GridColumn--offset--xxlarge--3 aem-GridColumn--offset--xxxlarge--4 aem-GridColumn--xsmall--none aem-GridColumn--large--none aem-GridColumn aem-GridColumn--large--14 aem-GridColumn--xxxlarge--8 aem-GridColumn--default--16">
+												<div class="container-fluid sub-footer">
+
+													                    <div class="row">
+                        <div class="col-xs-24">
+                          <p><a target="_blank" href="https://www.amd.com/en/corporate/copyright">Terms and Conditions</a> | <a target="_blank" href="https://www.amd.com/en/corporate/privacy">Privacy</a> | <a target="_blank" href="https://www.amd.com/en/corporate/cookies">Cookie Policy</a> | <a target="_blank" href="https://www.amd.com/en/corporate/trademarks">Trademarks</a> | <a target="_blank" href="https://www.amd.com/system/files/documents/statement-human-trafficking-forced-labor.pdf">Statement on Forced Labor</a> | <a target="_blank" href="https://www.amd.com/en/corporate/competition">Fair and Open Competition</a> | <a target="_blank" href="https://www.amd.com/system/files/documents/amd-uk-tax-strategy.pdf">UK Tax Strategy</a> | <a target="_blank" href="https://docs.xilinx.com/v/u/9x6YvZKuWyhJId7y7RQQKA">Inclusive Terminology</a> | <a href="#cookiessettings" class="ot-sdk-show-settings">Cookies Settings</a></p>
+                        </div>
+                    </div>
+												</div>
+											</div>
+										</div>
+										
+</br>
+
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+
+</body>
+</html>

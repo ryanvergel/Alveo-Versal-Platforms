@@ -1,0 +1,16 @@
+.. include:: /include/links.txt
+.. include:: /include/format.txt
+
+.. # S1 * S2 = S3 - S4
+
+.. _Terminology:
+
+##########################################################################
+Terminology
+##########################################################################
+
+add some text here
+
+----------------------------------
+
+.. include:: /include/license.txt
