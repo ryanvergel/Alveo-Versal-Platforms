@@ -21,7 +21,7 @@ Xilinx® Alveo® Versal® Data Center accelerator cards are PCI Express® compli
 
    **Figure: Vitis Versal Platform System Overview**
 
-For more information on the Alveo Versal Vitis Platform architecture see :ref:`Platform Architecture<arch overview>`.
+For more information on the Alveo Versal Vitis Platform architecture, see :ref:`Platform Architecture<arch overview>`.
  
 ----------------------------------
 
