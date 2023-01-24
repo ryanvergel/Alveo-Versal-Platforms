@@ -8,5 +8,5 @@
 # [Alveo Versal Documentation](https://xilinx.github.io/Alveo-Versal-Platforms/)
 
 <hr/>
-<p align="center" class="sphinxhide"><sup>Copyright&copy; 2022 Xilinx</sup></p>
+<p align="center" class="sphinxhide"><sup>Copyright&copy; 2022-2023 Xilinx</sup></p>
 
